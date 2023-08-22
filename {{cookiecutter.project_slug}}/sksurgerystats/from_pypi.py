@@ -17,9 +17,11 @@ def find_new_pypi_packages(searchname):
     Searched for packages with names matching the searchname in PyPi
     """
     packages = subprocess.run(
-        ["./pypi-simple-search", searchname], capture_output=True
+        ["./pypi-simple-search", "-u", searchname], capture_output=True
     ).stdout
-    return packages.decode("utf-8").splitlines()
+    package_list = packages.decode("utf-8").splitlines()
+    package_list.remove("Updating cache of PyPi packages")
+    return package_list
 
 
 def get_release_information(package_dictionary):
