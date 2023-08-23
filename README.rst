@@ -1,5 +1,5 @@
-scikit-surgery-stats
-====================
+sustainable-pkg-stats
+=====================
 
 .. image:: https://img.shields.io/twitter/url?style=social&url=http%3A%2F%2Fscikit-surgery.org
    :target: https://twitter.com/intent/tweet?screen_name=scikit_surgery&ref_src=twsrc%5Etfw
@@ -12,9 +12,9 @@ scikit-surgery-stats
 This is a set of scripts to get statistics on the scikit-surgery library
 and turn them into a nice webpage
 
-.. image:: https://github.com/scikit-surgery/scikit-surgery-stats/raw/master/assets/screenshot.png
+.. image:: https://github.com/scikit-surgery/sustainable-pkg-stats/raw/master/assets/screenshot.png
     :width: 400px
-    :target: http://scikit-surgery.github.io/scikit-surgery-stats/
+    :target: http://scikit-surgery.github.io/sustainable-pkg-stats/
     :alt: Link to the dashboard
 
 
@@ -35,7 +35,7 @@ it includes the Github Action that deploys the produced html files to the `gh-pa
    ```
 2. Run cookieninja in the desired location
 
-    `cookieninja gh:scikit-surgery/scikit-surgery-stats`
+    `cookieninja gh:scikit-surgery/sustainable-pkg-stats`
 
     If you have this repo locally (this may be the case if you are developing, or you cloned this repository before), you can alternatively run the following:
 
