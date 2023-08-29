@@ -41,6 +41,7 @@ def get_list_of_packages(all_packages, path="libraries/"):
     2. doesn't end with txt
     3. doesn't have whitespaces
     4. doesn't start with .
+    5. excludes available_badges.json
 
     """
     packages = []
@@ -50,6 +51,7 @@ def get_list_of_packages(all_packages, path="libraries/"):
             and not package.endswith(".txt")
             and not re.search(r"\s", package)
             and not package.startswith(".")
+            and not package == 'available_badges.json'
         ):
             packages.append(package)
     return packages

@@ -13,14 +13,13 @@ from requests.exceptions import SSLError
 import json
 
 from sksurgerystats.common import (
-    get_list_of_packages,
+    get_packages,
     get_package_information,
     update_package_information,
 )
 
 if __name__ == "__main__":
-    all_packages = os.listdir("libraries/")
-    packages = get_list_of_packages(all_packages)
+    packages = get_packages()
 
     badges = {
         "total": 0,

@@ -7,14 +7,13 @@ import os.path
 
 import sksurgerystats.from_pypi as skspypi
 from sksurgerystats.common import (
-    get_list_of_packages,
+    get_packages,
     get_package_information,
     update_package_information,
 )
 
 if __name__ == "__main__":
-    all_packages = os.listdir("libraries/")
-    packages = get_list_of_packages(all_packages)
+    packages = get_packages()
 
     package_dictionaries = []
     for package in packages:
