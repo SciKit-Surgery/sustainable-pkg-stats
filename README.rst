@@ -176,7 +176,7 @@ will need admin rights in your organisation and repository. You can read more on
 
     1. Go to the Settings
     2. Go to Security -> Actions -> Repository secrets
-    3. Add a key named `ADMIN_TOKEN` and leave the value blank. Github runner will take care of this in Github Actions.
+    3. Add a key named `ADMIN_TOKEN` and the token you created at step 6.
 
     This is the same type of token you saved locally in Step 6. Yo should never
     version control/track this token in your remote repository,  so here we are creating
