@@ -1,5 +1,5 @@
-scikit-surgery-stats
-====================
+sustainable-pkg-stats
+=====================
 
 .. image:: https://img.shields.io/twitter/url?style=social&url=http%3A%2F%2Fscikit-surgery.org
    :target: https://twitter.com/intent/tweet?screen_name=scikit_surgery&ref_src=twsrc%5Etfw
@@ -12,9 +12,9 @@ scikit-surgery-stats
 This is a set of scripts to get statistics on the scikit-surgery library
 and turn them into a nice webpage
 
-.. image:: https://github.com/scikit-surgery/scikit-surgery-stats/raw/master/assets/screenshot.png
+.. image:: https://github.com/scikit-surgery/sustainable-pkg-stats/raw/master/assets/screenshot.png
     :width: 400px
-    :target: http://scikit-surgery.github.io/scikit-surgery-stats/
+    :target: http://scikit-surgery.github.io/sustainable-pkg-stats/
     :alt: Link to the dashboard
 
 
@@ -35,7 +35,7 @@ it includes the Github Action that deploys the produced html files to the `gh-pa
    ```
 2. Run cookieninja in the desired location
 
-    `cookieninja gh:scikit-surgery/scikit-surgery-stats`
+    `cookieninja gh:scikit-surgery/sustainable-pkg-stats`
 
     If you have this repo locally (this may be the case if you are developing, or you cloned this repository before), you can alternatively run the following:
 
@@ -176,7 +176,7 @@ will need admin rights in your organisation and repository. You can read more on
 
     1. Go to the Settings
     2. Go to Security -> Actions -> Repository secrets
-    3. Add a key named `ADMIN_TOKEN` and leave the value blank. Github runner will take care of this in Github Actions.
+    3. Add a key named `ADMIN_TOKEN` and the token you created at step 6.
 
     This is the same type of token you saved locally in Step 6. Yo should never
     version control/track this token in your remote repository,  so here we are creating
