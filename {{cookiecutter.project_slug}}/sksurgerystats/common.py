@@ -129,7 +129,7 @@ def get_packages(
     returns a list of of packages, and optionally sorts by
     the sort key
     """
-    all_packages = os.listdir(path)
+    all_packages = [f for f in os.listdir(path) if not f.startswith('.')] 
     packages = get_list_of_packages(all_packages)
 
     if sort_key is None:
