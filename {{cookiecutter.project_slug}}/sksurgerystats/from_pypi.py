@@ -38,11 +38,16 @@ def get_release_information(package_dictionary):
     releases_list = list(package_dictionary.get("releases"))
     first_release_date = None
     last_release_date = None
-    last_release_name = None
+    last_release_name = 'n/a'
     number_of_releases = len(releases_list)
 
     for release in releases_list:
-        release_date_string = releases.get(release)[0].get("upload_time")
+        try:
+            release_date_string = releases.get(release)[0].get("upload_time")
+        except IndexError:
+            #some releases have an empty list for release information
+            #if so skip this iteration
+            continue
         release_date = datetime.fromisoformat(release_date_string)
         if first_release_date is None:
             first_release_date = release_date
@@ -55,11 +60,19 @@ def get_release_information(package_dictionary):
             last_release_date = release_date
             last_release_name = release
 
+    if first_release_date is not None:
+        return (
+            number_of_releases,
+            first_release_date.isoformat(),
+            last_release_date.isoformat(),
+            last_release_name
+        )
+
     return (
         number_of_releases,
-        first_release_date.isoformat(),
-        last_release_date.isoformat(),
-        last_release_name,
+        'n/a',
+        'n/a'
+        last_release_name
     )
 
 
