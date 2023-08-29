@@ -29,7 +29,7 @@ if __name__ == "__main__":
         "docs_badge": 0,
         "codeclimate_badge": 0,
         "pepy_downloads_badge": 0,
-        "syntek_package_heath_badge": 0,
+        "syntek_package_health_badge": 0,
     }
 
     for package in packages:
@@ -47,13 +47,13 @@ if __name__ == "__main__":
             package,
             "pepy_downloads_target",
         )
-        syntek_package_heath_badge = get_package_information(
+        syntek_package_health_badge = get_package_information(
             package,
-            "syntek_package_heath_badge",
+            "syntek_package_health_badge",
         )
-        syntek_package_heath_target = get_package_information(
+        syntek_package_health_target = get_package_information(
             package,
-            "syntek_package_heath_target",
+            "syntek_package_health_target",
         )
 
         homepage = get_package_information(package, "home_page")
@@ -109,12 +109,12 @@ if __name__ == "__main__":
                     "https://pepy.tech/project/" + package + "/?branch=master",
                 )
 
-            if syntek_package_heath_badge is None:
-                syntek_package_heath_badge = str(
+            if syntek_package_health_badge is None:
+                syntek_package_health_badge = str(
                     "https://snyk.io/advisor/python/" + package + "/badge.svg",
                 )
-            if syntek_package_heath_target is None:
-                syntek_package_heath_target = str(
+            if syntek_package_health_target is None:
+                syntek_package_health_target = str(
                     "https://snyk.io/advisor/python/" + package,
                 )
 
@@ -246,25 +246,25 @@ if __name__ == "__main__":
                     overwrite=True,
                 )
 
-        # check and update syntek_package_heath
-        if syntek_package_heath_badge is not None:
-            req = requests.get(syntek_package_heath_badge)
+        # check and update syntek_package_health
+        if syntek_package_health_badge is not None:
+            req = requests.get(syntek_package_health_badge)
             if req.status_code == 200:
-                badges["syntek_package_heath_badge"] += 1
+                badges["syntek_package_health_badge"] += 1
                 update_package_information(
                     package,
-                    "syntek_package_heath_badge",
-                    syntek_package_heath_badge,
+                    "syntek_package_health_badge",
+                    syntek_package_health_badge,
                     overwrite=True,
                 )
 
-        if syntek_package_heath_target is not None:
-            req = requests.get(syntek_package_heath_target)
+        if syntek_package_health_target is not None:
+            req = requests.get(syntek_package_health_target)
             if req.status_code == 200:
                 update_package_information(
                     package,
-                    "syntek_package_heath_target",
-                    syntek_package_heath_target,
+                    "syntek_package_health_target",
+                    syntek_package_health_target,
                     overwrite=True,
                 )
 
