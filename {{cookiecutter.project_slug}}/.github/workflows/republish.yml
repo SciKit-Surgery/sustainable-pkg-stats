@@ -24,6 +24,8 @@ jobs:
           python-version: "3.10"
           cache: "pip" # caching pip dependencies
       - run: |
+          sudo apt-get update
+          sudo apt-get install cloc
           pip install -r requirements.txt
           python3 -m pip install --upgrade urllib3==1.26.16
 
@@ -40,7 +42,7 @@ jobs:
           echo "step 4 done"
           python get_badges.py
           echo "step 5 done"
-          python get_loc.py
+          python get_loc.py ${{ runner.temp }}
           echo "step 6 done"
         env:
           admin_token: ${{ secrets.ADMIN_TOKEN }}
