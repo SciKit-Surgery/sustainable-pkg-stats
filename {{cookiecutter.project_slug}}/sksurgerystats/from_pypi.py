@@ -71,7 +71,7 @@ def get_release_information(package_dictionary):
     return (
         number_of_releases,
         'n/a',
-        'n/a'
+        'n/a',
         last_release_name
     )
 

@@ -10,13 +10,13 @@ permissions:
 
 jobs:
   build-and-deploy:
-    concurrency: ci-${{ ' -}} github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
+    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
         with:
-          ref: ${{ ' -}} github.head_ref }}
+          ref: ${{ github.head_ref }}
 
       - name: Set environment
         uses: actions/setup-python@v4
@@ -43,7 +43,7 @@ jobs:
           python get_loc.py
           echo "step 6 done"
         env:
-          admin_token: ${{ ' -}} secrets.ADMIN_TOKEN }}
+          admin_token: ${{ secrets.ADMIN_TOKEN }}
 
       - name: Commit changed library files
         uses: stefanzweifel/git-auto-commit-action@v4
