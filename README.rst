@@ -201,20 +201,18 @@ Clone repository
 (Optional) Generate your SSH keys as suggested `here <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
 (Optional) GitHub CLI as suggested `here <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?tool=cli>`_
 Clone the repository by typing (or copying) the following line in a terminal at your selected path in your machine:
-```
-git clone git@github.com:SciKit-Surgery/sustainable-pkg-stats.git
-```
+.. code-block::
+    git clone git@github.com:SciKit-Surgery/sustainable-pkg-stats.git
 
 Creating and activating the environment either with venv or conda
 -----------------------------------------------------------------
-
-* conda
+Using conda
 .. code-block::
     conda create -n susdbVE pip -c conda-forge
     activate susdbVE
     pip install -r requirements.txt
 
-* venv
+Using venv
 .. code-block::
     mkdir env
     python -m venv env/
