@@ -30,11 +30,10 @@ Using the template
 =====================
 
 1. Create conda or mamba environment with `cookieninja <https://libraries.io/pypi/cookieninja>`__ which is part of requirements.
-    ```
-    conda create -n susdbVE pip -c conda-forge
-    activate susdbVE
-    pip install -r requirements.txt
-    ```
+    .. code-block::
+        conda create -n susdbVE pip -c conda-forge
+        activate susdbVE
+        pip install -r requirements.txt
 
 2. Run cookieninja in the desired location
 
@@ -78,53 +77,53 @@ Note that these project variables are defined in the `cookiecutter.json` file.
 
     We will get a project folder named after `dashboard_for_scikit-surgery`, structured like this:
 
-    ├── assets
-    │   └── logo-dashboard.svg
-    ├── _config.yml
-    ├── get_badges.py
-    ├── get_github_repos.py
-    ├── get_loc.py
-    ├── get_pypi_repos.py
-    ├── html
-    │   ├── dashboard.html
-    │   ├── dashboard.html.in.head
-    │   ├── dashboard.html.in.tail
-    │   ├── excluded.html.in.head
-    │   ├── excluded.html.in.tail
-    │   └── exclusions.html
-    ├── index.html
-    ├── libraries
-    │   ├── exclusions
-    │   └── lines_of_code
-    ├── LICENSE
-    ├── loc
-    │   ├── CMakeCatchTemplate.html
-    │   └── PythonTemplate.html
-    ├── pypi-simple-search
-    ├── README.md
-    ├── requirements.txt
-    ├── sksurgerystats
-    │   ├── common.py
-    │   ├── from_github.py
-    │   ├── from_pypi.py
-    │   ├── html.py
-    │   ├── __init__.py
-    │   ├── __pycache__
-    │   │   ├── common.cpython-310.pyc
-    │   │   ├── html.cpython-310.pyc
-    │   │   └── __init__.cpython-310.pyc
-    │   └── pypi_downloads.py
-    ├── static
-    │   └── loc_plot.js
-    ├── templates
-    │   ├── dashboard.css
-    │   └── loc_plot.html
-    ├── tests
-    │   ├── conftest.py
-    │   └── test_template_workflow.py
-    ├── update_dashboard.py
-    ├── update_github_stats.py
-    └── update_pypi_stats.py
+        ├── assets
+        │   └── logo-dashboard.svg
+        ├── _config.yml
+        ├── get_badges.py
+        ├── get_github_repos.py
+        ├── get_loc.py
+        ├── get_pypi_repos.py
+        ├── html
+        │   ├── dashboard.html
+        │   ├── dashboard.html.in.head
+        │   ├── dashboard.html.in.tail
+        │   ├── excluded.html.in.head
+        │   ├── excluded.html.in.tail
+        │   └── exclusions.html
+        ├── index.html
+        ├── libraries
+        │   ├── exclusions
+        │   └── lines_of_code
+        ├── LICENSE
+        ├── loc
+        │   ├── CMakeCatchTemplate.html
+        │   └── PythonTemplate.html
+        ├── pypi-simple-search
+        ├── README.md
+        ├── requirements.txt
+        ├── sksurgerystats
+        │   ├── common.py
+        │   ├── from_github.py
+        │   ├── from_pypi.py
+        │   ├── html.py
+        │   ├── __init__.py
+        │   ├── __pycache__
+        │   │   ├── common.cpython-310.pyc
+        │   │   ├── html.cpython-310.pyc
+        │   │   └── __init__.cpython-310.pyc
+        │   └── pypi_downloads.py
+        ├── static
+        │   └── loc_plot.js
+        ├── templates
+        │   ├── dashboard.css
+        │   └── loc_plot.html
+        ├── tests
+        │   ├── conftest.py
+        │   └── test_template_workflow.py
+        ├── update_dashboard.py
+        ├── update_github_stats.py
+        └── update_pypi_stats.py
 
    Important configurations to note:
 
