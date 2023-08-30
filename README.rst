@@ -260,6 +260,7 @@ Inspect libraries with pypi
 
 We can use pypinfo to get data for things on pypi
 
+
 .. code-block::
     pypinfo --auth snappy-downloads-3d3fb7e245fd.json
     pypinfo scikit-surgeryvtk country
