@@ -257,16 +257,13 @@ update html files
 .. code-block::
     python update_dashboard.py
 
-
-
 Inspect libraries with pypi
 .. code-block::
     ./pypi-simple-search scikit-surgery > scikit-surgery-onpypi.txt
     python get_github_repos.py > scikit-surgery-ongithub.txt
 
 We can use pypinfo to get data for things on pypi
-
-
 .. code-block::
     pypinfo --auth snappy-downloads-3d3fb7e245fd.json
     pypinfo scikit-surgeryvtk country
+
