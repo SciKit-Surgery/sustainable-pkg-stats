@@ -237,7 +237,8 @@ Running the pipeline that generates dashboard.html and associated files needed b
 .. code-block::
     bash Makefile
 
-    or you can run the individual python scripts to check outputs
+or you can run the individual python scripts to check outputs
+
 
 .. code-block::
     #step 1 search for relevant packages on pypi and githib
@@ -257,7 +258,7 @@ Inspect libraries with pypi
     ./pypi-simple-search scikit-surgery > scikit-surgery-onpypi.txt
     python get_github_repos.py > scikit-surgery-ongithub.txt
 
-    We can use pypinfo to get data for things on pypi
+We can use pypinfo to get data for things on pypi
 
 .. code-block::
     pypinfo --auth snappy-downloads-3d3fb7e245fd.json
