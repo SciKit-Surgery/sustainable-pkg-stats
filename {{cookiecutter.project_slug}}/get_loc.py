@@ -5,6 +5,7 @@ gets some statistics for them.
 import os.path
 import shutil
 import subprocess
+import sys
 from github import Github, GithubException
 
 from sksurgerystats.common import (
@@ -20,13 +21,16 @@ from sksurgerystats.from_github import (
 from sksurgerystats.html import load_cache_file, make_html_file, write_to_js_file
 
 if __name__ == "__main__":
+    temp_dir = os.path.join(os.getcwd(), "temp")
+    if len(sys.argv) == 2:
+        temp_dir = sys.argv[1]
+
     packages = get_packages()
 
     token = None
     token = get_token()
 
     # cleanup of temp directory if script couldn't complete the last time it was run
-    temp_dir = os.path.join(os.getcwd(), "temp")
     shutil.rmtree(temp_dir, ignore_errors=True)
 
     for package in packages:
@@ -49,7 +53,10 @@ if __name__ == "__main__":
         if not os.path.exists(temp_dir):
             os.mkdir(temp_dir)
         if homepage is not None:
-            if get_last_commit(homepage, token) in git_hashes:
+            last_commit = get_last_commit(homepage, token)
+            if last_commit is None:
+                continue
+            if last_commit in git_hashes:
                 print("No need to update ", package, " skipping")
                 continue
             try:

@@ -153,7 +153,7 @@ if __name__ == "__main__":
             )
 
             loc_badge = None
-            loc_link = str("../loc/" + package + ".html")
+            loc_link = str("loc/" + package + ".html")
             if lines_of_code is not None:
                 loc_badge = str(
                     "https://img.shields.io/badge/LOC-"
