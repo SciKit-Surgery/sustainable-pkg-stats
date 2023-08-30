@@ -167,7 +167,8 @@ if __name__ == "__main__":
             for badge in badges_dictionary:
                 description = metric_dictionary[badge]
                 WriteCellWithLinkedImage(
-                    fileout, badge, badges_dictionary[badge][0], description
+                    fileout, badges_dictionary[badge][0],
+                    badges_dictionary[badge][1], description
                 )
 
             github_user = get_package_information(package, "GitHub User")
