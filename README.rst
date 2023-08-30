@@ -36,12 +36,12 @@ Using the template
     pip install -r requirements.txt
 
 2. Run cookieninja in the desired location
+.. code-block::
+    cookieninja gh:scikit-surgery/sustainable-pkg-stats
 
-    `cookieninja gh:scikit-surgery/sustainable-pkg-stats`
-
-    If you have this repo locally (this may be the case if you are developing, or you cloned this repository before), you can alternatively run the following:
-
-    `cookieninja /path/to/your/checkout/of/python-template`
+If you have this repo locally (this may be the case if you are developing, or you cloned this repository before), you can alternatively run the following:
+.. code-block::
+    cookieninja /path/to/your/checkout/of/python-template
 
 3. A series of questions will pop up to configure the project. Type the answer or hit return to use the default option (shown in square brackets)
 
@@ -49,34 +49,30 @@ Using the template
         It is crucial you enter a value for `base_library_name` as the dashboard analysis scripts will be configured for this base package. There is a
         script the cookieninja runs placed under `hooks/pre_gen_project.py` that checks if the name given returns package entries in pypi search.
 
-    .. code-block::
-
-            author_name [John Smith]:
-            author_email [temp@gmail.com]:
-            project_name [Community Dashboard]:
-            project_slug [dashboard_for_scikit-surgery]:
-            base_library_name [scikit-surgery]:
-            project_short_description [A dashboard template from scikit-surgery]:
-            funder [JBFC: The Joe Bloggs Funding Council]:
-            Select licence:
-                1 - MIT
-                2 - BSD-3
-                3 - GPL-3.0
-            Choose from 1, 2, 3 [1]:
+.. code-block::
+    author_name [John Smith]:
+    author_email [temp@gmail.com]:
+    project_name [Community Dashboard]:
+    project_slug [dashboard_for_scikit-surgery]:
+    base_library_name [scikit-surgery]:
+    project_short_description [A dashboard template from scikit-surgery]:
+    funder [JBFC: The Joe Bloggs Funding Council]:
+    Select licence:
+        1 - MIT
+        2 - BSD-3
+        3 - GPL-3.0
+        Choose from 1, 2, 3 [1]:
 
 Note that these project variables are defined in the `cookiecutter.json` file.
 
 4. This will create a directory with the following configuration:
+For example, for a project with the following variables:
+.. code-block::
+    project_name : Community Dashboard
+    base_library_name : scikit-surgery
 
-    For example, for a project with the following variables:
-
-    .. code-block::
-
-        project_name : Community Dashboard
-        base_library_name : scikit-surgery
-
-    We will get a project folder named after `dashboard_for_scikit-surgery`, structured like this:
-
+We will get a project folder named after `dashboard_for_scikit-surgery`, structured like this:
+```
         ├── assets
         │   └── logo-dashboard.svg
         ├── _config.yml
@@ -124,7 +120,7 @@ Note that these project variables are defined in the `cookiecutter.json` file.
         ├── update_dashboard.py
         ├── update_github_stats.py
         └── update_pypi_stats.py
-
+```
    Important configurations to note:
 
    1.  `get_github_repos.py` and `get_pypi_repos.py` will take `base_library_name` as the base name to search packages in `https://pypi.org/search/`
@@ -140,8 +136,8 @@ Note that these project variables are defined in the `cookiecutter.json` file.
    :alt: Dashboard header for the given example
 
 5. To run the pipeline, you first need to install the dependencies using the `requirements.txt` file installed via step 3.
-    .. code-block::
-        pip install -r requirements.txt
+.. code-block::
+    pip install -r requirements.txt
 
 6. To run the analysis scripts, test locally, you need a personal access token for Github API generated from `here <https://github.com/settings/personal-access-tokens/new>`__
 
@@ -212,20 +208,18 @@ git clone git@github.com:SciKit-Surgery/sustainable-pkg-stats.git
 Creating and activating the environment either with venv or conda
 -----------------------------------------------------------------
 
-    * conda
-    ```
+* conda
+.. code-block::
     conda create -n susdbVE pip -c conda-forge
     activate susdbVE
     pip install -r requirements.txt
-    ```
 
-    * venv
-```
+* venv
+.. code-block::
     mkdir env
     python -m venv env/
     source env/bin/activate
     pip install -r requirements
-```
 
 Token for Github API
 --------------------
