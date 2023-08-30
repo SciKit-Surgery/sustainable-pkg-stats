@@ -45,14 +45,8 @@ jobs:
         env:
           admin_token: ${{ secrets.ADMIN_TOKEN }}
 
-      - name: Commit changed library files
-        uses: stefanzweifel/git-auto-commit-action@v4
-
       - name: Regenerate Dashboard 🚀
         run: python update_dashboard.py
 
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages
-          folder: . # The folder the action should deploy.
+      - name: Commit changed library files
+        uses: stefanzweifel/git-auto-commit-action@v4
