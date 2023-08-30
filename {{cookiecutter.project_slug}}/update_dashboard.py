@@ -163,14 +163,6 @@ if __name__ == "__main__":
 
             WriteCellWithLinkedImage(fileout, loc_badge, loc_link, "Lines of Code")
 
-            # write the badges to the HTMLs
-            for badge in badges_dictionary:
-                description = metric_dictionary[badge]
-                WriteCellWithLinkedImage(
-                    fileout, badges_dictionary[badge][0],
-                    badges_dictionary[badge][1], description
-                )
-
             github_user = get_package_information(package, "GitHub User")
             stars_badge = None
             forks_badge = None
@@ -231,6 +223,15 @@ if __name__ == "__main__":
                 str(homepage + "/graphs/contributors"),
                 "GitHub Contributors",
             )
+
+            # write the badges to the HTMLs
+            for badge in badges_dictionary:
+                description = metric_dictionary[badge]
+                WriteCellWithLinkedImage(
+                    fileout, badges_dictionary[badge][0],
+                    badges_dictionary[badge][1], description
+                )
+
 
             fileout.write("  </tr>\n")
 
