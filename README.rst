@@ -23,8 +23,10 @@ Sustainability dashboard template for community
 ================================================
 
 We provide a repository template for creating a sustainability dashboard for your own library/ecosystem of interest.
-It automatically creates the scripts and files needed to run the analysis needed for deployment of dashboard showing metrics of libraries existing within a given base Python package/ecosystem, and
-it includes the Github Action that deploys the produced html files to the `gh-pages` branch of a target repository, which triggers a deployment every 12 hours, using the `cron` scheduler.
+It automatically creates the scripts and files needed to run the analysis needed for deployment of dashboard
+showing metrics of libraries existing within a given base Python package/ecosystem.
+It includes the Github Action that deploys the produced html files to the `gh-pages` branch of a target repository,
+which triggers a deployment every 12 hours, using the `cron` scheduler.
 
 Using the template
 =====================
@@ -176,7 +178,8 @@ Important configurations to note:
    :alt: Configuration
 
 b. You need a secret personal token to use the github API in the Github Action workflow, saved as `secrets.ADMIN_TOKEN`. For this you
-will need admin rights in your organisation and repository. You can read more on secret Github tokens `here <https://docs.github.com/en/actions/security-guides/encrypted-secrets`__
+will need admin rights in your organisation and repository. You can read more on secret Github tokens
+`here <https://docs.github.com/en/actions/security-guides/encrypted-secrets`__
 
     1. Go to the Settings
     2. Go to Security -> Actions -> Repository secrets
@@ -200,8 +203,10 @@ Instructions for developers
 
 Clone repository
 ----------------
-(Optional) Generate your SSH keys as suggested `here <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
-(Optional) GitHub CLI as suggested `here <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?tool=cli>`_
+(Optional) Generate your SSH keys as suggested
+`here <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
+(Optional) GitHub CLI as suggested
+`here <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?tool=cli>`_
 Clone the repository by typing (or copying) the following line in a terminal at your selected path in your machine:
 .. code-block::
     git clone git@github.com:SciKit-Surgery/sustainable-pkg-stats.git
@@ -228,7 +233,7 @@ Make sure you have a personal access token for Github API generated from `here <
 
 Running the pipeline
 --------------------
-* Running the pipeline that generates dashboard.html and associated files needed by Github Pages
+Running the pipeline that generates dashboard.html and associated files needed by Github Pages
 .. code-block::
     bash Makefile
 
@@ -247,7 +252,7 @@ Running the pipeline
     python update_dashboard.py
 
 
-*  Inspect libraries with pypi
+Inspect libraries with pypi
 .. code-block::
     ./pypi-simple-search scikit-surgery > scikit-surgery-onpypi.txt
     python get_github_repos.py > scikit-surgery-ongithub.txt
