@@ -34,7 +34,7 @@ Using the template
 1. Create conda or mamba environment with `cookieninja <https://libraries.io/pypi/cookieninja>`__ which is part of requirements.
 .. code-block::
     conda create -n susdbVE pip -c conda-forge
-    activate susdbVE
+    conda activate susdbVE
     pip install -r requirements.txt
 
 2. Run cookieninja in the desired location
@@ -214,7 +214,7 @@ Creating and activating the environment either with venv or conda
 Using conda
 .. code-block::
     conda create -n susdbVE pip -c conda-forge
-    activate susdbVE
+    conda activate susdbVE
     pip install -r requirements.txt
 
 Using venv
