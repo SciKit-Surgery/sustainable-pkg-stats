@@ -23,26 +23,27 @@ Sustainability dashboard template for community
 ================================================
 
 We provide a repository template for creating a sustainability dashboard for your own library/ecosystem of interest.
-It automatically creates the scripts and files needed to run the analysis needed for deployment of dashboard showing metrics of libraries existing within a given base Python package/ecosystem, and
-it includes the Github Action that deploys the produced html files to the `gh-pages` branch of a target repository, which triggers a deployment every 12 hours, using the `cron` scheduler.
+It automatically creates the scripts and files needed to run the analysis needed for deployment of dashboard
+showing metrics of libraries existing within a given base Python package/ecosystem.
+It includes the Github Action that deploys the produced html files to the `gh-pages` branch of a target repository,
+which triggers a deployment every 12 hours, using the `cron` scheduler.
 
 Using the template
 =====================
 
 1. Create conda or mamba environment with `cookieninja <https://libraries.io/pypi/cookieninja>`__ which is part of requirements.
-    ```
+.. code-block::
     conda create -n susdbVE pip -c conda-forge
-    activate susdbVE
+    conda activate susdbVE
     pip install -r requirements.txt
-    ```
 
 2. Run cookieninja in the desired location
+.. code-block::
+    cookieninja gh:scikit-surgery/sustainable-pkg-stats
 
-    `cookieninja gh:scikit-surgery/sustainable-pkg-stats`
-
-    If you have this repo locally (this may be the case if you are developing, or you cloned this repository before), you can alternatively run the following:
-
-    `cookieninja /path/to/your/checkout/of/python-template`
+If you have this repo locally (this may be the case if you are developing, or you cloned this repository before), you can alternatively run the following:
+.. code-block::
+    cookieninja /path/to/your/checkout/of/python-template
 
 3. A series of questions will pop up to configure the project. Type the answer or hit return to use the default option (shown in square brackets)
 
@@ -50,34 +51,30 @@ Using the template
         It is crucial you enter a value for `base_library_name` as the dashboard analysis scripts will be configured for this base package. There is a
         script the cookieninja runs placed under `hooks/pre_gen_project.py` that checks if the name given returns package entries in pypi search.
 
-    .. code-block::
-
-            author_name [John Smith]:
-            author_email [temp@gmail.com]:
-            project_name [Community Dashboard]:
-            project_slug [dashboard_for_scikit-surgery]:
-            base_library_name [scikit-surgery]:
-            project_short_description [A dashboard template from scikit-surgery]:
-            funder [JBFC: The Joe Bloggs Funding Council]:
-            Select licence:
-                1 - MIT
-                2 - BSD-3
-                3 - GPL-3.0
-            Choose from 1, 2, 3 [1]:
+.. code-block::
+    author_name [John Smith]:
+    author_email [temp@gmail.com]:
+    project_name [Community Dashboard]:
+    project_slug [dashboard_for_scikit-surgery]:
+    base_library_name [scikit-surgery]:
+    project_short_description [A dashboard template from scikit-surgery]:
+    funder [JBFC: The Joe Bloggs Funding Council]:
+    Select licence:
+        1 - MIT
+        2 - BSD-3
+        3 - GPL-3.0
+        Choose from 1, 2, 3 [1]:
 
 Note that these project variables are defined in the `cookiecutter.json` file.
 
 4. This will create a directory with the following configuration:
+For example, for a project with the following variables:
+.. code-block::
+    project_name : Community Dashboard
+    base_library_name : scikit-surgery
 
-    For example, for a project with the following variables:
-
-    .. code-block::
-
-        project_name : Community Dashboard
-        base_library_name : scikit-surgery
-
-    We will get a project folder named after `dashboard_for_scikit-surgery`, structured like this:
-
+We will get a project folder named after `dashboard_for_scikit-surgery`, structured like this:
+.. code-block::
     ├── assets
     │   └── logo-dashboard.svg
     ├── _config.yml
@@ -126,23 +123,23 @@ Note that these project variables are defined in the `cookiecutter.json` file.
     ├── update_github_stats.py
     └── update_pypi_stats.py
 
-   Important configurations to note:
 
-   1.  `get_github_repos.py` and `get_pypi_repos.py` will take `base_library_name` as the base name to search packages in `https://pypi.org/search/`
-        and github
+
+Important configurations to note:
+
+   1.  `get_github_repos.py` and `get_pypi_repos.py` will take `base_library_name` as the base name to search packages in `https://pypi.org/search/` and github
 
    2.   `project_name` will appear in the README.md as the human-readable name of the project.
 
-   3.   `html/dashboard.html` will take `project_name` as the main title, Community Dashboard, and also use `project_slug` for a description below the logo,
-         as shown here:
+   3.   `html/dashboard.html` will take `project_name` as the main title, Community Dashboard, and also use `project_slug` for a description below the logo, as shown below:
 
 .. image:: assets/header_cookieninja_template.png
    :width: 400
    :alt: Dashboard header for the given example
 
 5. To run the pipeline, you first need to install the dependencies using the `requirements.txt` file installed via step 3.
-    .. code-block::
-        pip install -r requirements.txt
+.. code-block::
+    pip install -r requirements.txt
 
 6. To run the analysis scripts, test locally, you need a personal access token for Github API generated from `here <https://github.com/settings/personal-access-tokens/new>`__
 
@@ -179,7 +176,8 @@ Note that these project variables are defined in the `cookiecutter.json` file.
    :alt: Configuration
 
 b. You need a secret personal token to use the github API in the Github Action workflow, saved as `secrets.ADMIN_TOKEN`. For this you
-will need admin rights in your organisation and repository. You can read more on secret Github tokens `here <https://docs.github.com/en/actions/security-guides/encrypted-secrets`__
+will need admin rights in your organisation and repository. You can read more on secret Github tokens
+`here <https://docs.github.com/en/actions/security-guides/encrypted-secrets`__
 
     1. Go to the Settings
     2. Go to Security -> Actions -> Repository secrets
@@ -203,30 +201,28 @@ Instructions for developers
 
 Clone repository
 ----------------
-(Optional) Generate your SSH keys as suggested `here <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
-(Optional) GitHub CLI as suggested `here <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?tool=cli>`_
+(Optional) Generate your SSH keys as suggested
+`here <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
+(Optional) GitHub CLI as suggested
+`here <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?tool=cli>`_
 Clone the repository by typing (or copying) the following line in a terminal at your selected path in your machine:
-```
-git clone git@github.com:SciKit-Surgery/sustainable-pkg-stats.git
-```
+.. code-block::
+    git clone git@github.com:SciKit-Surgery/sustainable-pkg-stats.git
 
 Creating and activating the environment either with venv or conda
 -----------------------------------------------------------------
-
-    * conda
-    ```
+Using conda
+.. code-block::
     conda create -n susdbVE pip -c conda-forge
-    activate susdbVE
+    conda activate susdbVE
     pip install -r requirements.txt
-    ```
 
-    * venv
-```
+Using venv
+.. code-block::
     mkdir env
     python -m venv env/
     source env/bin/activate
     pip install -r requirements
-```
 
 Token for Github API
 --------------------
@@ -235,32 +231,37 @@ Make sure you have a personal access token for Github API generated from `here <
 
 Running the pipeline
 --------------------
-* Running the pipeline that generates dashboard.html and associated files needed by Github Pages
+Running the pipeline that generates dashboard.html and associated files needed by Github Pages
+.. code-block::
+    bash Makefile
 
-        bash Makefile
+You can also run the individual python scripts to check outputs:
 
-    or you can run the individual python scripts to check outputs
+Search for relevant packages on pypi and githib
+.. code-block::
+    python get_pypi_repos.py
+    python get_github_repos.py
 
-        #step 1 search for relevant packages on pypi and githib
-        python get_pypi_repos.py
-        python get_github_repos.py
-        #update stats
-        python update_pypi_stats.py
-        python update_github_stats.py
-        #get coverage/docs/etc badges
-        python get_badges.py
-        #update html files
-        python update_dashboard.py
+update stats
+.. code-block::
+    python update_pypi_stats.py
+    python update_github_stats.py
 
+get coverage/docs/etc badges
+.. code-block::
+    python get_badges.py
 
-*  Inspect libraries with pypi
+update html files
+.. code-block::
+    python update_dashboard.py
 
-        ./pypi-simple-search scikit-surgery > scikit-surgery-onpypi.txt
+Inspect libraries with pypi
+.. code-block::
+    ./pypi-simple-search scikit-surgery > scikit-surgery-onpypi.txt
+    python get_github_repos.py > scikit-surgery-ongithub.txt
 
-        python get_github_repos.py > scikit-surgery-ongithub.txt
+We can use pypinfo to get data for things on pypi
+.. code-block::
+    pypinfo --auth snappy-downloads-3d3fb7e245fd.json
+    pypinfo scikit-surgeryvtk country
 
-    We can use pypinfo to get data for things on pypi
-
-
-        pypinfo --auth snappy-downloads-3d3fb7e245fd.json
-        pypinfo scikit-surgeryvtk country
