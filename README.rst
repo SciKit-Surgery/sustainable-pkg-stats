@@ -26,13 +26,16 @@ We provide a repository template for creating a sustainability dashboard for you
 It automatically creates the scripts and files needed to run the analysis needed for deployment of dashboard showing metrics of libraries existing within a given base Python package/ecosystem, and
 it includes the Github Action that deploys the produced html files to the `gh-pages` branch of a target repository, which triggers a deployment every 12 hours, using the `cron` scheduler.
 
-## Using the template
+Using the template
+=====================
 
-1. Install `cookieninja <https://libraries.io/pypi/cookieninja>`__
+1. Create conda or mamba environment with `cookieninja <https://libraries.io/pypi/cookieninja>`__ which is part of requirements.
+    ```
+    conda create -n susdbVE pip -c conda-forge
+    activate susdbVE
+    pip install -r requirements.txt
+    ```
 
-   ```
-   pip install cookieninja
-   ```
 2. Run cookieninja in the desired location
 
     `cookieninja gh:scikit-surgery/sustainable-pkg-stats`
@@ -52,11 +55,15 @@ it includes the Github Action that deploys the produced html files to the `gh-pa
             author_name [John Smith]:
             author_email [temp@gmail.com]:
             project_name [Community Dashboard]:
+            project_slug [dashboard_for_scikit-surgery]:
             base_library_name [scikit-surgery]:
             project_short_description [A dashboard template from scikit-surgery]:
             funder [JBFC: The Joe Bloggs Funding Council]:
-            licence ["MIT", "BSD-3", "GPL-3.0"]:
-            "_copy_without_render [".github/*"]:
+            Select licence:
+                1 - MIT
+                2 - BSD-3
+                3 - GPL-3.0
+            Choose from 1, 2, 3 [1]:
 
 Note that these project variables are defined in the `cookiecutter.json` file.
 
@@ -66,54 +73,58 @@ Note that these project variables are defined in the `cookiecutter.json` file.
 
     .. code-block::
 
-        project_name : Astropy Community Dashboard
-        base_library_name : astropy
+        project_name : Community Dashboard
+        base_library_name : scikit-surgery
 
-    We will get a project folder named after `astropy-dashboard`, structured like this:
+    We will get a project folder named after `dashboard_for_scikit-surgery`, structured like this:
 
-
-    |  astropy-dashboard
-    |    ├── LICENSE
-    |    ├── README.md
-    |    ├── _config.yml
-    |    ├── get_badges.py
-    |    ├── get_github_repos.py
-    |    ├── get_loc.py
-    |    ├── get_pypi_repos.py
-    |    ├── html
-    |    │   ├── dashboard.html
-    |    │   ├── dashboard.html.in.head
-    |    │   ├── dashboard.html.in.tail
-    |    │   ├── excluded.html.in.head
-    |    │   ├── excluded.html.in.tail
-    |    │   └── exclusions.html
-    |    ├── index.html
-    |    ├── libraries
-    |    │   ├── exclusions
-    |    ├── pypi-simple-search
-    |    ├── sksurgerystats
-    |    │   ├── __init__.py
-    |    │   ├── common.py
-    |    │   ├── from_github.py
-    |    │   ├── from_pypi.py
-    |    │   ├── html.py
-    |    │   └── pypi_downloads.py
-    |    ├── static
-    |    │   └── loc_plot.js
-    |    ├── templates
-    |    │   ├── dashboard.css
-    |    │   └── loc_plot.html
-    |    ├── tests
-    |    │   ├── conftest.py
-    |    │   └── test_template_workflow.py
-    |    ├── update_dashboard.py
-    |    ├── update_github_stats.py
-    |    ├── update_pypi_stats.py
-    |    └── workflows
-    |        ├── linting.yml
-    |        ├── republish.yml
-    |        └── tests.yml
-
+    ├── assets
+    │   └── logo-dashboard.svg
+    ├── _config.yml
+    ├── get_badges.py
+    ├── get_github_repos.py
+    ├── get_loc.py
+    ├── get_pypi_repos.py
+    ├── html
+    │   ├── dashboard.html
+    │   ├── dashboard.html.in.head
+    │   ├── dashboard.html.in.tail
+    │   ├── excluded.html.in.head
+    │   ├── excluded.html.in.tail
+    │   └── exclusions.html
+    ├── index.html
+    ├── libraries
+    │   ├── exclusions
+    │   └── lines_of_code
+    ├── LICENSE
+    ├── loc
+    │   ├── CMakeCatchTemplate.html
+    │   └── PythonTemplate.html
+    ├── pypi-simple-search
+    ├── README.md
+    ├── requirements.txt
+    ├── sksurgerystats
+    │   ├── common.py
+    │   ├── from_github.py
+    │   ├── from_pypi.py
+    │   ├── html.py
+    │   ├── __init__.py
+    │   ├── __pycache__
+    │   │   ├── common.cpython-310.pyc
+    │   │   ├── html.cpython-310.pyc
+    │   │   └── __init__.cpython-310.pyc
+    │   └── pypi_downloads.py
+    ├── static
+    │   └── loc_plot.js
+    ├── templates
+    │   ├── dashboard.css
+    │   └── loc_plot.html
+    ├── tests
+    │   ├── conftest.py
+    │   └── test_template_workflow.py
+    ├── update_dashboard.py
+    ├── update_github_stats.py
+    └── update_pypi_stats.py
 
    Important configurations to note:
 
@@ -122,19 +133,15 @@ Note that these project variables are defined in the `cookiecutter.json` file.
 
    2.   `project_name` will appear in the README.md as the human-readable name of the project.
 
-   3.   `html/dashboard.html` will take `project_name` as the main title, Astropy Community Dashboard, and also use `project_slug` for a description below the logo,
+   3.   `html/dashboard.html` will take `project_name` as the main title, Community Dashboard, and also use `project_slug` for a description below the logo,
          as shown here:
 
 .. image:: assets/header_cookieninja_template.png
    :width: 400
    :alt: Dashboard header for the given example
 
-5. To run the pipeline, you first need to install the dependencies using the `requirements.txt` file installed via step 3
-
+5. To run the pipeline, you first need to install the dependencies using the `requirements.txt` file installed via step 3.
     .. code-block::
-        mkdir env
-        python -m venv env/
-        source env/bin/activate
         pip install -r requirements.txt
 
 6. To run the analysis scripts, test locally, you need a personal access token for Github API generated from `here <https://github.com/settings/personal-access-tokens/new>`__
@@ -191,23 +198,44 @@ Note for checking if things work properly:
 - while running `get_badges.py` you should notice that under `libraries` folder, there are .json files of dictionary entries for each package
 
 
-Use instructions for developers
-=================================
+Instructions for developers
+===========================
 
-1. Activating the environment
+Clone repository
+----------------
+(Optional) Generate your SSH keys as suggested `here <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
+(Optional) GitHub CLI as suggested `here <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?tool=cli>`_
+Clone the repository by typing (or copying) the following line in a terminal at your selected path in your machine:
+```
+git clone git@github.com:SciKit-Surgery/sustainable-pkg-stats.git
+```
 
-        mkdir env
+Creating and activating the environment either with venv or conda
+-----------------------------------------------------------------
 
-        python -m venv env/
+    * conda
+    ```
+    conda create -n susdbVE pip -c conda-forge
+    activate susdbVE
+    pip install -r requirements.txt
+    ```
 
-        source env/bin/activate
+    * venv
+```
+    mkdir env
+    python -m venv env/
+    source env/bin/activate
+    pip install -r requirements
+```
 
-        pip install -r requirements
-
-2. Make sure you have a personal access token for Github API generated from `here <https://github.com/settings/personal-access-tokens/new>`_
+Token for Github API
+--------------------
+Make sure you have a personal access token for Github API generated from `here <https://github.com/settings/personal-access-tokens/new>`_
     and is saved in the base directory under a file named `github.token`
 
-3. Running the pipeline that generates dashboard.html and associated files needed by Github Pages
+Running the pipeline
+--------------------
+* Running the pipeline that generates dashboard.html and associated files needed by Github Pages
 
         bash Makefile
 
