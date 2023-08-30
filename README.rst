@@ -121,7 +121,9 @@ We will get a project folder named after `dashboard_for_scikit-surgery`, structu
     ├── update_github_stats.py
     └── update_pypi_stats.py
 
-   Important configurations to note:
+
+
+Important configurations to note:
 
    1.  `get_github_repos.py` and `get_pypi_repos.py` will take `base_library_name` as the base name to search packages in `https://pypi.org/search/`
         and github
@@ -227,31 +229,31 @@ Make sure you have a personal access token for Github API generated from `here <
 Running the pipeline
 --------------------
 * Running the pipeline that generates dashboard.html and associated files needed by Github Pages
-
-        bash Makefile
+.. code-block::
+    bash Makefile
 
     or you can run the individual python scripts to check outputs
 
-        #step 1 search for relevant packages on pypi and githib
-        python get_pypi_repos.py
-        python get_github_repos.py
-        #update stats
-        python update_pypi_stats.py
-        python update_github_stats.py
-        #get coverage/docs/etc badges
-        python get_badges.py
-        #update html files
-        python update_dashboard.py
+.. code-block::
+    #step 1 search for relevant packages on pypi and githib
+    python get_pypi_repos.py
+    python get_github_repos.py
+    #update stats
+    python update_pypi_stats.py
+    python update_github_stats.py
+    #get coverage/docs/etc badges
+    python get_badges.py
+    #update html files
+    python update_dashboard.py
 
 
 *  Inspect libraries with pypi
-
-        ./pypi-simple-search scikit-surgery > scikit-surgery-onpypi.txt
-
-        python get_github_repos.py > scikit-surgery-ongithub.txt
+.. code-block::
+    ./pypi-simple-search scikit-surgery > scikit-surgery-onpypi.txt
+    python get_github_repos.py > scikit-surgery-ongithub.txt
 
     We can use pypinfo to get data for things on pypi
 
-
-        pypinfo --auth snappy-downloads-3d3fb7e245fd.json
-        pypinfo scikit-surgeryvtk country
+.. code-block::
+    pypinfo --auth snappy-downloads-3d3fb7e245fd.json
+    pypinfo scikit-surgeryvtk country
