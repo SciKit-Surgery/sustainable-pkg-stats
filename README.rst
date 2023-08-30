@@ -237,20 +237,26 @@ Running the pipeline that generates dashboard.html and associated files needed b
 .. code-block::
     bash Makefile
 
-or you can run the individual python scripts to check outputs
+You can also run the individual python scripts to check outputs:
 
-
+Search for relevant packages on pypi and githib
 .. code-block::
-    #step 1 search for relevant packages on pypi and githib
     python get_pypi_repos.py
     python get_github_repos.py
-    #update stats
+
+update stats
+.. code-block::
     python update_pypi_stats.py
     python update_github_stats.py
-    #get coverage/docs/etc badges
+
+get coverage/docs/etc badges
+.. code-block::
     python get_badges.py
-    #update html files
+
+update html files
+.. code-block::
     python update_dashboard.py
+
 
 
 Inspect libraries with pypi
