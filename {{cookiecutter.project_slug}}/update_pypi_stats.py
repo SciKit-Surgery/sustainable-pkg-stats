@@ -21,6 +21,8 @@ if __name__ == "__main__":
 
     for dictionary in package_dictionaries:
         package_name = dictionary.get("info").get("name")
+        if package_name != package:
+            continue
         (
             number_of_releases,
             first_release_date,
