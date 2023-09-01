@@ -19,9 +19,10 @@ if __name__ == "__main__":
     for package in packages:
         package_dictionaries.append(skspypi.get_json_from_pypi(package))
 
-    for dictionary in package_dictionaries:
+    for index, dictionary in enumerate(package_dictionaries):
         package_name = dictionary.get("info").get("name")
-        if package_name != package:
+        if package_name != packages[index]:
+            print("Got package name mismatch: ", package_name, " != ", package)
             continue
         (
             number_of_releases,
