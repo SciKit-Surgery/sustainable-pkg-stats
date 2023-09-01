@@ -101,12 +101,11 @@ if __name__ == "__main__":
                 )
 
             if pepy_downloads_badge is None:
-                pepy_downloads_badge = str("https://pepy.tech/badge/" + package)
+                pepy_downloads_badge = str("https://static.pepy.tech/badge/" + package)
             # always update this
             if pepy_downloads_target is None:
                 pepy_downloads_target = str(
-                    "https://pepy.tech/project/" + package + "/?branch=master",
-                )
+                    "https://pepy.tech/projects/" + package)
 
             if syntek_package_health_badge is None:
                 syntek_package_health_badge = str(
