@@ -22,7 +22,7 @@ if __name__ == "__main__":
     for index, dictionary in enumerate(package_dictionaries):
         package_name = dictionary.get("info").get("name")
         if package_name != packages[index]:
-            print("Got package name mismatch: ", package_name, " != ", package)
+            print("Got package name mismatch: ", package_name, " != ", packages[index])
             continue
         (
             number_of_releases,
