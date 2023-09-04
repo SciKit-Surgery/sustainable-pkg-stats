@@ -51,6 +51,7 @@ If you have this repo locally (this may be the case if you are developing, or yo
     It is crucial you enter a value for `base_library_name` as the dashboard analysis scripts will be configured for this base package. There is a
     script the cookieninja runs placed under `hooks/pre_gen_project.py` that checks if the name given returns package entries in pypi search.
 
+
 .. code-block::
     author_name [John Smith]:
     author_email [temp@gmail.com]:
