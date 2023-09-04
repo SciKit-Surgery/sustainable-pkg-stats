@@ -194,7 +194,7 @@ Save it in the base directory under a text file named `github.token`
 
 b. You need a secret personal token to use the github API in the Github Action workflow, saved as `secrets.ADMIN_TOKEN`. For this you
 will need admin rights in your organisation and repository. You can read more on secret Github tokens
-`here <https://docs.github.com/en/actions/security-guides/encrypted-secrets`__
+`here <https://docs.github.com/en/actions/security-guides/encrypted-secrets>`__
 
     1. Go to the `Settings`
     2. Go to `Security and variables` -> Actions -> Repository secrets
@@ -218,10 +218,8 @@ Instructions for developers
 
 Clone repository
 ----------------
-* (Optional) Generate your SSH keys as suggested
-`here <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
-* (Optional) GitHub CLI as suggested
-`here <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?tool=cli>`_
+* (Optional) Generate your SSH keys as suggested `here <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
+* (Optional) GitHub CLI as suggested `here <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?tool=cli>`_
 * Clone the repository by typing (or copying) the following line in a terminal at your selected path in your machine:
 
 .. code-block::
@@ -247,13 +245,9 @@ Using venv
     source env/bin/activate
     pip install -r requirements
 
-Token for Github API
---------------------
-Make sure you have a personal access token for Github API generated from `here <https://github.com/settings/personal-access-tokens/new>`_
-    and is saved in the base directory under a file named `github.token`
 
-Running the pipeline
---------------------
+Running the pipeline in your local machine
+------------------------------------------
 Running the pipeline that generates dashboard.html and associated files needed by Github Pages
 
 .. code-block::
