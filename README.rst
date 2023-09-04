@@ -28,8 +28,8 @@ showing metrics of libraries existing within a given base Python package/ecosyst
 It includes the Github Action that deploys the produced html files to the `gh-pages` branch of a target repository,
 which triggers a deployment every 12 hours, using the `cron` scheduler.
 
-Using the template
-=====================
+Using the template in local machine
+===================================
 
 1. Create conda or mamba environment with `cookieninja <https://libraries.io/pypi/cookieninja>`__ which is part of requirements.
 .. code-block::
@@ -48,8 +48,8 @@ If you have this repo locally (this may be the case if you are developing, or yo
 3. A series of questions will pop up to configure the project. Type the answer or hit return to use the default option (shown in square brackets)
 
 ..  tip::
-        It is crucial you enter a value for `base_library_name` as the dashboard analysis scripts will be configured for this base package. There is a
-        script the cookieninja runs placed under `hooks/pre_gen_project.py` that checks if the name given returns package entries in pypi search.
+    It is crucial you enter a value for `base_library_name` as the dashboard analysis scripts will be configured for this base package. There is a
+    script the cookieninja runs placed under `hooks/pre_gen_project.py` that checks if the name given returns package entries in pypi search.
 
 .. code-block::
     author_name [John Smith]:
@@ -64,6 +64,7 @@ If you have this repo locally (this may be the case if you are developing, or yo
         2 - BSD-3
         3 - GPL-3.0
         Choose from 1, 2, 3 [1]:
+
 
 Note that these project variables are defined in the `cookiecutter.json` file.
 
