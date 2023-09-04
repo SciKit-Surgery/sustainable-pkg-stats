@@ -33,16 +33,19 @@ Using the template in local machine
 
 1. Create conda or mamba environment with `cookieninja <https://libraries.io/pypi/cookieninja>`__ which is part of requirements.
 .. code-block::
+
     conda create -n susdbVE pip -c conda-forge
     conda activate susdbVE
     pip install -r requirements.txt
 
 2. Run cookieninja in the desired location
 .. code-block::
+
     cookieninja gh:scikit-surgery/sustainable-pkg-stats
 
 If you have this repo locally (this may be the case if you are developing, or you cloned this repository before), you can alternatively run the following:
 .. code-block::
+
     cookieninja /path/to/your/checkout/of/python-template
 
 3. A series of questions will pop up to configure the project.
