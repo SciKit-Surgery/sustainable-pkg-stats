@@ -48,11 +48,8 @@ If you have this repo locally (this may be the case if you are developing, or yo
 3. A series of questions will pop up to configure the project.
 Type the answer or hit return to use the default option (shown in square brackets).
 Note that these project variables are defined in the `cookiecutter.json` file.
-
-..  tip::
-    It is crucial you enter a value for `base_library_name` as the dashboard analysis scripts will be configured for this base package. There is a
-    script the cookieninja runs placed under `hooks/pre_gen_project.py` that checks if the name given returns package entries in pypi search.
-
+It is important that you enter a value for `base_library_name` as the dashboard analysis scripts will be configured for this base package.
+There is a script the cookieninja runs placed under `hooks/pre_gen_project.py` that checks if the name given returns package entries in pypi search.
 .. code-block::
     author_name [John Smith]:
     author_email [temp@gmail.com]:
@@ -66,7 +63,6 @@ Note that these project variables are defined in the `cookiecutter.json` file.
     2 - BSD-3
     3 - GPL-3.0
     Choose from 1, 2, 3 [1]:
-
 
 
 4. This will create a directory with the following configuration:
