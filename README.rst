@@ -35,9 +35,8 @@ Using the template in local machine
 
 .. code-block::
 
-    conda create -n susdbVE pip -c conda-forge
+    conda create -n susdbVE pip cookieninja -c conda-forge
     conda activate susdbVE
-    pip install -r requirements.txt
 
 2. Run cookieninja in the desired location
 
@@ -136,22 +135,25 @@ We will get a project folder named after `dashboard_for_scikit-surgery`, structu
 
 
 Important configurations to note:
-
-   1.  `get_github_repos.py` and `get_pypi_repos.py` will take `base_library_name` as the base name to search packages in `https://pypi.org/search/` and github
-
-   2.   `project_name` will appear in the README.md as the human-readable name of the project.
-
-   3.   `html/dashboard.html` will take `project_name` as the main title, Community Dashboard, and also use `project_slug` for a description below the logo, as shown below:
-
+1. `get_github_repos.py` and `get_pypi_repos.py` will take `base_library_name` as the base name to search packages in `https://pypi.org/search/` and github
+2. `project_name` will appear in the README.md as the human-readable name of the project.
+3. `html/dashboard.html` will take `project_name` as the main title, Community Dashboard, and also use `project_slug` for a description below the logo, as shown below:
 .. image:: assets/header_cookieninja_template.png
    :width: 400
    :alt: Dashboard header for the given example
 
-5. To run the pipeline, you first need to install the dependencies using the `requirements.txt` file installed via step 3.
+5. Setting github repository.
+Create a new repository with the same name (e.g. `https://github.com/$GITHUB_USER_ID/dashboard_for_scikit-surgery`.
 
 .. code-block::
 
-    pip install -r requirements.txt
+    cd dashboard_for_scikit-surgery
+    git init
+    git add .
+    git commit -m "first commit"
+    git branch -M main
+    git remote add origin git@github.com:$GITHUB_USER_ID/dashboard_for_scikit-surgery.git
+
 
 6. To run the analysis scripts, test locally, you need a personal access token for Github API generated from `here <https://github.com/settings/personal-access-tokens/new>`__
 
