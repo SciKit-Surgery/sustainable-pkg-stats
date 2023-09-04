@@ -213,11 +213,11 @@ Instructions for developers
 
 Clone repository
 ----------------
-(Optional) Generate your SSH keys as suggested
+* (Optional) Generate your SSH keys as suggested
 `here <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
-(Optional) GitHub CLI as suggested
+* (Optional) GitHub CLI as suggested
 `here <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?tool=cli>`_
-Clone the repository by typing (or copying) the following line in a terminal at your selected path in your machine:
+* Clone the repository by typing (or copying) the following line in a terminal at your selected path in your machine:
 
 .. code-block::
 
