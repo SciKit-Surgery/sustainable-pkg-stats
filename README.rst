@@ -52,7 +52,6 @@ If you have this repo locally (this may be the case if you are developing, or yo
     script the cookieninja runs placed under `hooks/pre_gen_project.py` that checks if the name given returns package entries in pypi search.
 
 
-
 .. code-block::
     author_name [John Smith]:
     author_email [temp@gmail.com]:
@@ -62,12 +61,10 @@ If you have this repo locally (this may be the case if you are developing, or yo
     project_short_description [A dashboard template from scikit-surgery]:
     funder [JBFC: The Joe Bloggs Funding Council]:
     Select licence:
-        1 - MIT
-        2 - BSD-3
-        3 - GPL-3.0
-        Choose from 1, 2, 3 [1]:
-
-
+    1 - MIT
+    2 - BSD-3
+    3 - GPL-3.0
+    Choose from 1, 2, 3 [1]:
 
 
 Note that these project variables are defined in the `cookiecutter.json` file.
