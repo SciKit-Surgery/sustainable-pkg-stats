@@ -50,6 +50,7 @@ Type the answer or hit return to use the default option (shown in square bracket
 Note that these project variables are defined in the `cookiecutter.json` file.
 It is important that you enter a value for `base_library_name` as the dashboard analysis scripts will be configured for this base package.
 There is a script the cookieninja runs placed under `hooks/pre_gen_project.py` that checks if the name given returns package entries in pypi search.
+
 .. code-block::
     author_name [John Smith]:
     author_email [temp@gmail.com]:
@@ -67,6 +68,7 @@ There is a script the cookieninja runs placed under `hooks/pre_gen_project.py` t
 
 4. This will create a directory with the following configuration:
 For example, for a project with the following variables:
+
 .. code-block::
     project_name : Community Dashboard
     base_library_name : scikit-surgery
