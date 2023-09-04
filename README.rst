@@ -138,12 +138,13 @@ Important configurations to note:
 1. `get_github_repos.py` and `get_pypi_repos.py` will take `base_library_name` as the base name to search packages in `https://pypi.org/search/` and github
 2. `project_name` will appear in the README.md as the human-readable name of the project.
 3. `html/dashboard.html` will take `project_name` as the main title, Community Dashboard, and also use `project_slug` for a description below the logo, as shown below:
+
 .. image:: assets/header_cookieninja_template.png
    :width: 400
    :alt: Dashboard header for the given example
 
 5. Setting github repository.
-Create a new repository with the same name (e.g. `https://github.com/$GITHUB_USER_ID/dashboard_for_scikit-surgery`.
+Create a new repository with the same name (e.g. `https://github.com/$GITHUB_USER_ID/dashboard_for_scikit-surgery`).
 
 .. code-block::
 
