@@ -77,11 +77,14 @@ There is a script the cookieninja runs placed under `hooks/pre_gen_project.py` t
 For example, for a project with the following variables:
 
 .. code-block::
+
     project_name : Community Dashboard
     base_library_name : scikit-surgery
 
 We will get a project folder named after `dashboard_for_scikit-surgery`, structured like this:
+
 .. code-block::
+
     ├── assets
     │   └── logo-dashboard.svg
     ├── _config.yml
@@ -145,7 +148,9 @@ Important configurations to note:
    :alt: Dashboard header for the given example
 
 5. To run the pipeline, you first need to install the dependencies using the `requirements.txt` file installed via step 3.
+
 .. code-block::
+
     pip install -r requirements.txt
 
 6. To run the analysis scripts, test locally, you need a personal access token for Github API generated from `here <https://github.com/settings/personal-access-tokens/new>`__
@@ -213,19 +218,25 @@ Clone repository
 (Optional) GitHub CLI as suggested
 `here <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?tool=cli>`_
 Clone the repository by typing (or copying) the following line in a terminal at your selected path in your machine:
+
 .. code-block::
+
     git clone git@github.com:SciKit-Surgery/sustainable-pkg-stats.git
 
 Creating and activating the environment either with venv or conda
 -----------------------------------------------------------------
 Using conda
+
 .. code-block::
+
     conda create -n susdbVE pip -c conda-forge
     conda activate susdbVE
     pip install -r requirements.txt
 
 Using venv
+
 .. code-block::
+
     mkdir env
     python -m venv env/
     source env/bin/activate
@@ -239,36 +250,50 @@ Make sure you have a personal access token for Github API generated from `here <
 Running the pipeline
 --------------------
 Running the pipeline that generates dashboard.html and associated files needed by Github Pages
+
 .. code-block::
+
     bash Makefile
 
 You can also run the individual python scripts to check outputs:
 
 Search for relevant packages on pypi and githib
+
 .. code-block::
+
     python get_pypi_repos.py
     python get_github_repos.py
 
 update stats
+
 .. code-block::
+
     python update_pypi_stats.py
     python update_github_stats.py
 
 get coverage/docs/etc badges
+
 .. code-block::
+
     python get_badges.py
 
 update html files
+
 .. code-block::
+
     python update_dashboard.py
 
 Inspect libraries with pypi
+
 .. code-block::
+
     ./pypi-simple-search scikit-surgery > scikit-surgery-onpypi.txt
     python get_github_repos.py > scikit-surgery-ongithub.txt
 
 We can use pypinfo to get data for things on pypi
+
 .. code-block::
+
     pypinfo --auth snappy-downloads-3d3fb7e245fd.json
     pypinfo scikit-surgeryvtk country
 
