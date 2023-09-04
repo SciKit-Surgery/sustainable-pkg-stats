@@ -28,8 +28,8 @@ showing metrics of libraries existing within a given base Python package/ecosyst
 It includes the Github Action that deploys the produced html files to the `gh-pages` branch of a target repository,
 which triggers a deployment every 12 hours, using the `cron` scheduler.
 
-Using the template in local machine
-===================================
+Using the template
+==================
 
 1. Create conda or mamba environment with `cookieninja <https://libraries.io/pypi/cookieninja>`__ which is part of requirements.
 
@@ -196,8 +196,8 @@ b. You need a secret personal token to use the github API in the Github Action w
 will need admin rights in your organisation and repository. You can read more on secret Github tokens
 `here <https://docs.github.com/en/actions/security-guides/encrypted-secrets`__
 
-    1. Go to the Settings
-    2. Go to Security -> Actions -> Repository secrets
+    1. Go to the `Settings`
+    2. Go to `Security and variables` -> Actions -> Repository secrets
     3. Add a key named `ADMIN_TOKEN` and the token you created at step 6.
 
     This is the same type of token you saved locally in Step 6. Yo should never
