@@ -149,44 +149,33 @@ Important configurations to note:
 5. Setting github repository.
 Create a new repository with the same name (e.g. `https://github.com/$GITHUB_USER_ID/dashboard_for_scikit-surgery`).
 
-.. code-block::
-
-    cd dashboard_for_scikit-surgery
-    git init
-    git add .
-    git commit -m "first commit"
-    git branch -M main
-    git remote add origin git@github.com:$GITHUB_USER_ID/dashboard_for_scikit-surgery.git
-
-
 6. To run the analysis scripts, test locally, you need a personal access token for Github API generated from `here <https://github.com/settings/personal-access-tokens/new>`__
 Save it in the base directory under a text file named `github.token`
 
 7. Few [optional] things to set before you can run the pipeline!
 
-    a. You can specify a list for the libraries you want to exclude from your dashboard deployment, under `libraries/exclusions`
+a. You can specify a list for the libraries you want to exclude from your dashboard deployment, under `libraries/exclusions`
 
-        Similar to `libraries` folder, this (as shown below) has a dict entry for each package, such as in this example from `scikit-surgery`:
-            | libraries/exclusions
-            | ├── scikit-surgeryoverlay
-            | ├── scikit-surgerytorsosimulator
-            | └── scikit-surgeryvideoutils
+    Similar to `libraries` folder, this (as shown below) has a dict entry for each package, such as in this example from `scikit-surgery`:
+        | libraries/exclusions
+        | ├── scikit-surgeryoverlay
+        | ├── scikit-surgerytorsosimulator
+        | └── scikit-surgeryvideoutils
 
-        Each file entry (ex. scikit-surgeryoverlay) is a `.json` file that has :
-        an `obsolete` key and a value that is a sentence describing why they are obsolete, such as:
-        ```{"obsolete" : "Became <a href='https://github.com/UCL/scikit-surgeryvtk'>sikit-surgeryvtk.</a>"}```
+    Each file entry (ex. scikit-surgeryoverlay) is a `.json` file that has :
+    an `obsolete` key and a value that is a sentence describing why they are obsolete, such as:
+    ```{"obsolete" : "Became <a href='https://github.com/UCL/scikit-surgeryvtk'>sikit-surgeryvtk.</a>"}```
 
-    b. You can save the logo of your base package (a .svg file) under `assets/logo-dashboard.svg` for it to show up in your deployment header
+b. You can save the logo of your base package (a .svg file) under `assets/logo-dashboard.svg` for it to show up in your deployment header
 
-8. ESSENTIAL: Github Configurations
-    a. You need to initialise github pages in your repository and set the deployment source from branch `gh-pages` :
-        Github Action will automatically initialise this branch and deploy from
-        here. You can find the instructions
-        `here <https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site>`__
+8. Github Configurations
+a. You need to initialise github pages in your repository and set the deployment source from branch `gh-pages`:   
+Github Action will automatically initialise this branch and deploy from here. 
+You can find the instructions `here <https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site>`__
 
-        You might need admin rights from your organisation to use your organisation's base name. You can also use your username as the domain.
+You might need admin rights from your organisation to use your organisation's base name. You can also use your username as the domain.
 
-        Your configuration will need to look like this (In the example below, our domain name is the `scikit-surgery` organisation):
+Your configuration will need to look like this (In the example below, our domain name is the `scikit-surgery` organisation):
 
 .. image:: assets/github_pages_configuration.png
    :width: 500
@@ -205,12 +194,24 @@ will need admin rights in your organisation and repository. You can read more on
     a field for it which Github Action can reference in deployment.
 
 9. Running the pipeline
+Push your first commit to your package repository
 
-The Github Actions workflow will run this pipeline, so you do not need to do anything. But locally, you can check if the pipeline works correctly,
-by running the python scripts ordered and referenced in the `Makefile` file of this repository.
+.. code-block::
 
-Note for checking if things work properly:
-- while running `get_badges.py` you should notice that under `libraries` folder, there are .json files of dictionary entries for each package
+    cd dashboard_for_scikit-surgery
+    git init
+    git add .
+    git commit -m "first commit"
+    git branch -M main
+    git remote add origin git@github.com:$GITHUB_USER_ID/dashboard_for_scikit-surgery.git
+    git push -u origin main
+
+
+The Github Actions workflow will run this pipeline, so you do not need to do anything.
+
+Locally, you can check if the pipeline works correctly, by running the python scripts ordered and referenced in the `Makefile` file of this repository.
+Note for checking if things work properly.
+While running `get_badges.py` you should notice that under `libraries` folder, there are .json files of dictionary entries for each package.
 
 
 Instructions for developers
