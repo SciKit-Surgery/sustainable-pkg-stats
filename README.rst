@@ -146,8 +146,7 @@ Important configurations to note:
    :width: 400
    :alt: Dashboard header for the given example
 
-5. Setting github repository.
-Create a new repository with the same name (e.g. `https://github.com/$GITHUB_USER_ID/dashboard_for_scikit-surgery`).
+5. Create a new repository with the same `project_slug` name (e.g. `https://github.com/$GITHUB_USER_ID/dashboard_for_scikit-surgery`).
 
 6. To run the analysis scripts, test locally, you need a personal access token for Github API generated from `here <https://github.com/settings/personal-access-tokens/new>`__
 Save it in the base directory under a text file named `github.token`
@@ -193,7 +192,7 @@ will need admin rights in your organisation and repository. You can read more on
     version control/track this token in your remote repository,  so here we are creating
     a field for it which Github Action can reference in deployment.
 
-9. Running the pipeline
+9. Setting github repository.
 Push your first commit to your package repository
 
 .. code-block::
@@ -206,6 +205,8 @@ Push your first commit to your package repository
     git remote add origin git@github.com:$GITHUB_USER_ID/dashboard_for_scikit-surgery.git
     git push -u origin main
 
+
+10. Running the pipeline
 
 The Github Actions workflow will run this pipeline, so you do not need to do anything.
 
