@@ -31,13 +31,13 @@ which triggers a deployment every 12 hours, using the `cron` scheduler.
 Using the template
 ==================
 
-1. You can use your preferred virtual python envirohment to install `cookieninja <https://libraries.io/pypi/cookieninja>`__ which is part of requirements.
+1. You can use your preferred virtual python envirohment to install `cookieninja <https://libraries.io/pypi/cookieninja>`__.
 
 .. code-block::
 
     pip install cookieninja
 
-For instance, you can create conda or mamba environment as follows
+For instance, you can create conda or mamba environment with basic packages as follows
 
 .. code-block::
 
