@@ -187,13 +187,13 @@ Your configuration will need to look like this (In the example below, our domain
    :width: 500
    :alt: Configuration
 
-b. You need a secret personal token to use the github API in the Github Action workflow, saved as `secrets.ADMIN_TOKEN`. For this you
+b. You need a secret personal token to use the github API in the Github Action workflow, saved as `secrets.GITHUB_TOKEN`. For this you
 will need admin rights in your organisation and repository. You can read more on secret Github tokens
 `here <https://docs.github.com/en/actions/security-guides/encrypted-secrets>`__
 
     1. Go to the `Settings`
     2. Go to `Security and variables` -> Actions -> Repository secrets
-    3. Add a key named `ADMIN_TOKEN` and the token you created at step 6.
+    3. Add a key named `GITHUB_TOKEN` and the token you created at step 6.
 
     This is the same type of token you saved locally in Step 6. Yo should never
     version control/track this token in your remote repository,  so here we are creating
