@@ -155,10 +155,7 @@ Important configurations to note:
 
 5. Create a new repository with the same `project_slug` name (e.g. `https://github.com/$GITHUB_USER_ID/dashboard_for_scikit-surgery`).
 
-6. To run the analysis scripts, test locally, you need a personal access token for Github API generated from `here <https://github.com/settings/personal-access-tokens/new>`__
-Save it in the base directory under a text file named `github.token`
-
-7. Few [optional] things to set before you can run the pipeline!
+6. Few [optional] things to set before you can run the pipeline!
 
 a. You can specify a list for the libraries you want to exclude from your dashboard deployment, under `libraries/exclusions`
 
@@ -174,9 +171,8 @@ a. You can specify a list for the libraries you want to exclude from your dashbo
 
 b. You can save the logo of your base package (a .svg file) under `assets/logo-dashboard.svg` for it to show up in your deployment header
 
-8. Github Configurations
-a. You need to initialise github pages in your repository and set the deployment source from branch `gh-pages`:   
-Github Action will automatically initialise this branch and deploy from here. 
+7. Github Configurations
+a. You need to initialise github pages in your repository and set the deployment source from branch `main`:   
 You can find the instructions `here <https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site>`__
 
 You might need admin rights from your organisation to use your organisation's base name. You can also use your username as the domain.
@@ -187,19 +183,7 @@ Your configuration will need to look like this (In the example below, our domain
    :width: 500
    :alt: Configuration
 
-b. You need a secret personal token to use the github API in the Github Action workflow, saved as `secrets.ADMIN_TOKEN`. For this you
-will need admin rights in your organisation and repository. You can read more on secret Github tokens
-`here <https://docs.github.com/en/actions/security-guides/encrypted-secrets>`__
-
-    1. Go to the `Settings`
-    2. Go to `Security and variables` -> Actions -> Repository secrets
-    3. Add a key named `ADMIN_TOKEN` and the token you created at step 6.
-
-    This is the same type of token you saved locally in Step 6. Yo should never
-    version control/track this token in your remote repository,  so here we are creating
-    a field for it which Github Action can reference in deployment.
-
-9. Setting github repository.
+8. Setting up git repository.
 Push your first commit to your package repository
 
 .. code-block::
@@ -213,14 +197,20 @@ Push your first commit to your package repository
     git push -u origin main
 
 
-10. Running the pipeline
+9. Running the pipeline on Github actions
 
 The Github Actions workflow will run this pipeline, so you do not need to do anything.
+
+10. Running the pipeline locally
 
 Locally, you can check if the pipeline works correctly, by running the python scripts ordered and referenced in the `Makefile` file of this repository.
 Note for checking if things work properly.
 While running `get_badges.py` you should notice that under `libraries` folder, there are .json files of dictionary entries for each package.
 
+To run the scripts locally, you need a personal access token for Github API generated from `here <https://github.com/settings/personal-access-tokens/new>`__
+Save it in the base directory in a text file named `github.token`
+Be careful not to commit the token file to your git repository. If you do it will be submitted to github in 
+your publicly visible repository.
 
 Instructions for developers
 ===========================
