@@ -9,7 +9,8 @@ import contextlib
 import os.path
 
 import requests
-from requests.exceptions import SSLError
+from requests.exceptions import SSLError, ConnectionError, MissingSchema
+from urllib3.exceptions import LocationParseError
 import json
 
 from sksurgerystats.common import (
@@ -17,6 +18,11 @@ from sksurgerystats.common import (
     get_package_information,
     update_package_information,
 )
+
+class bad_connection():
+
+    def __init__(self):
+        self.status_code = 404
 
 if __name__ == "__main__":
     packages = get_packages()
@@ -116,9 +122,16 @@ if __name__ == "__main__":
                     "https://snyk.io/advisor/python/" + package,
                 )
 
+        req = bad_connection()
         # check and update ci
         if ci_badge is not None:
-            req = requests.get(ci_badge)
+            try:
+                req = requests.get(ci_badge)
+            except (ConnectionError, MissingSchema) as e:
+                print ("Got ", e, "when trying to get ci badge, ignoring")
+                req = bad_connection()
+                pass
+
             if req.status_code == 200:
                 badges["ci_badge"] = badges["ci_badge"] + 1
                 update_package_information(
@@ -129,7 +142,12 @@ if __name__ == "__main__":
                 )
 
         if ci_target is not None:
-            req = requests.get(ci_target)
+            try:
+                req = requests.get(ci_target)
+            except (ConnectionError, MissingSchema) as e:
+                print ("Got ", e, "when trying to get ci target, ignoring")
+                req = bad_connection()
+                pass
             if req.status_code == 200:
                 update_package_information(
                     package,
@@ -152,6 +170,7 @@ if __name__ == "__main__":
 
         if coverage_target is not None:
             req = requests.get(coverage_target)
+
             if req.status_code == 200:
                 update_package_information(
                     package,
@@ -170,6 +189,7 @@ if __name__ == "__main__":
             except SSLError as e:
                 print("SSL version or cipher mismatch error occurred:", e)
                 # Handle the error or continue with other operations
+                req = bad_connection()
                 pass
 
             if req.status_code == 200:
@@ -192,6 +212,12 @@ if __name__ == "__main__":
                 print("SSL version or cipher mismatch error occurred:", e)
                 # Handle the error or continue with other operations
                 pass
+            except LocationParseError as e:
+                print("Got ", e, "for ", docs_target, ". It's most likely too long",
+                    len(docs_target) , " > 63")
+                req = bad_connection()
+                pass
+
             if req.status_code == 200:
                 update_package_information(
                     package,
